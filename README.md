@@ -1,6 +1,6 @@
-# My project
+# OddSong Birdsong Identifier
 
-This is a README
+This is a README file!
 
 # Installation
 
