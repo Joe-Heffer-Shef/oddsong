@@ -6,6 +6,7 @@ def identify(audio_file: str) -> str:
     
     :return: The name of the bird species.
     """
-    print("Hello world")
+    
+    print("Identifying bird vocalisation...")
     
     return "Hirundo atrocaerulea"
