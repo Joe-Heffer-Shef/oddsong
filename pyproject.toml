@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "oddsong"
+version = "0.1.0"
+description = "Birdsong identifier that classifies bird species from audio recordings"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+[project.scripts]
+oddsong = "oddsong.__main__:main"

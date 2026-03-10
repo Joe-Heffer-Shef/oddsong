@@ -8,7 +8,19 @@ Implementations are available in both **Python** (`oddsong/`) and **R** (`R/`).
 
 ## Installation
 
-TODO
+Install from source using pip:
+
+```bash
+git clone https://github.com/Joe-Heffer-Shef/oddsong.git
+cd oddsong
+pip install .
+```
+
+To install in editable mode for development:
+
+```bash
+pip install -e .
+```
 
 ## Usage
 
