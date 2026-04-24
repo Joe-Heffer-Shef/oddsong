@@ -1,0 +1,5 @@
+site_name: OddSong Birdsong Identifier
+plugins:
+  - search
+  - mkdocstrings
+
