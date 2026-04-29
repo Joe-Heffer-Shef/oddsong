@@ -13,6 +13,18 @@ Install from source using pip:
 ```bash
 git clone https://github.com/Joe-Heffer-Shef/oddsong.git
 cd oddsong
+```
+
+Create and activate a virtual environment (recommended):
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
+
+Then install the package:
+
+```bash
 pip install .
 ```
 
