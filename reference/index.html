@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Reference - Birdsong Identifier</title>
+        <title>Reference - OddSong Birdsong Identifier</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="..">Birdsong Identifier</a>
+                <a class="navbar-brand" href="..">OddSong Birdsong Identifier</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -41,6 +41,9 @@
                             <li class="nav-item">
                                 <a href="./" class="nav-link active" aria-current="page">Reference</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="../spec/" class="nav-link">Spec</a>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
@@ -55,7 +58,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../spec/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -148,7 +151,7 @@
 
 
 <h2 id="oddsong.song.classify_segment" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">classify_segment</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">)</span></code>
+            <code class="highlight language-python">classify_segment(spectrogram)</code>
 
 </h2>
 
@@ -214,26 +217,16 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>oddsong/song.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">classify_segment</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Classify a spectrogram segment using the CNN model.</span>
+              <pre class="highlight"><code class="language-python">def classify_segment(spectrogram: list[list[float]]) -&gt; dict[str, float]:
+    """Classify a spectrogram segment using the CNN model.
 
-<span class="sd">    Args:</span>
-<span class="sd">        spectrogram: A 2D Mel-spectrogram (frequency x time).</span>
+    Args:
+        spectrogram: A 2D Mel-spectrogram (frequency x time).
 
-<span class="sd">    Returns:</span>
-<span class="sd">        A dict mapping species names to confidence scores (0.0–1.0).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{}</span>
-</code></pre></div></td></tr></table></div>
+    Returns:
+        A dict mapping species names to confidence scores (0.0–1.0).
+    """
+    return {}</code></pre>
             </details>
     </div>
 
@@ -243,7 +236,7 @@
 
 
 <h2 id="oddsong.song.compute_spectrogram" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">compute_spectrogram</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">)</span></code>
+            <code class="highlight language-python">compute_spectrogram(segment, sample_rate)</code>
 
 </h2>
 
@@ -325,28 +318,17 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>oddsong/song.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_spectrogram</span><span class="p">(</span><span class="n">segment</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert an audio segment into a log-scaled Mel-spectrogram.</span>
+              <pre class="highlight"><code class="language-python">def compute_spectrogram(segment: list[float], sample_rate: int) -&gt; list[list[float]]:
+    """Convert an audio segment into a log-scaled Mel-spectrogram.
 
-<span class="sd">    Args:</span>
-<span class="sd">        segment: Audio samples for a single segment.</span>
-<span class="sd">        sample_rate: Sample rate of the audio in Hz.</span>
+    Args:
+        segment: Audio samples for a single segment.
+        sample_rate: Sample rate of the audio in Hz.
 
-<span class="sd">    Returns:</span>
-<span class="sd">        A 2D list representing the Mel-spectrogram (frequency x time).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[[]]</span>
-</code></pre></div></td></tr></table></div>
+    Returns:
+        A 2D list representing the Mel-spectrogram (frequency x time).
+    """
+    return [[]]</code></pre>
             </details>
     </div>
 
@@ -356,7 +338,7 @@
 
 
 <h2 id="oddsong.song.filter_by_location" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">filter_by_location</span><span class="p">(</span><span class="n">detections</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">week</span><span class="p">)</span></code>
+            <code class="highlight language-python">filter_by_location(detections, latitude, longitude, week)</code>
 
 </h2>
 
@@ -470,42 +452,24 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>oddsong/song.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_by_location</span><span class="p">(</span>
-    <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span>
-    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="n">week</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Filter detections using location and seasonal occurrence data.</span>
+              <pre class="highlight"><code class="language-python">def filter_by_location(
+    detections: list[dict],
+    latitude: float,
+    longitude: float,
+    week: int,
+) -&gt; list[dict]:
+    """Filter detections using location and seasonal occurrence data.
 
-<span class="sd">    Args:</span>
-<span class="sd">        detections: List of detection dicts, each with &#39;species&#39; and &#39;confidence&#39;.</span>
-<span class="sd">        latitude: Observer latitude in decimal degrees.</span>
-<span class="sd">        longitude: Observer longitude in decimal degrees.</span>
-<span class="sd">        week: Week of year (1–48) for seasonal filtering.</span>
+    Args:
+        detections: List of detection dicts, each with 'species' and 'confidence'.
+        latitude: Observer latitude in decimal degrees.
+        longitude: Observer longitude in decimal degrees.
+        week: Week of year (1–48) for seasonal filtering.
 
-<span class="sd">    Returns:</span>
-<span class="sd">        A filtered list of detections consistent with known species ranges.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">detections</span>
-</code></pre></div></td></tr></table></div>
+    Returns:
+        A filtered list of detections consistent with known species ranges.
+    """
+    return detections</code></pre>
             </details>
     </div>
 
@@ -515,7 +479,7 @@
 
 
 <h2 id="oddsong.song.identify" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">identify</span><span class="p">(</span><span class="n">audio_file</span><span class="p">)</span></code>
+            <code class="highlight language-python">identify(audio_file)</code>
 
 </h2>
 
@@ -581,46 +545,26 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>oddsong/song.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span>
-<span class="normal">93</span>
-<span class="normal">94</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">identify</span><span class="p">(</span><span class="n">audio_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Identify a bird based on the sound of its call.</span>
+              <pre class="highlight"><code class="language-python">def identify(audio_file: str) -&gt; str:
+    """Identify a bird based on the sound of its call.
 
-<span class="sd">    Args:</span>
-<span class="sd">        audio_file: The path of an audio file.</span>
+    Args:
+        audio_file: The path of an audio file.
 
-<span class="sd">    Returns:</span>
-<span class="sd">        The name of the bird species.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Identifying bird vocalisation...&quot;</span><span class="p">)</span>
+    Returns:
+        The name of the bird species.
+    """
+    print("Identifying bird vocalisation...")
 
-    <span class="n">samples</span> <span class="o">=</span> <span class="n">load_audio</span><span class="p">(</span><span class="n">audio_file</span><span class="p">)</span>
-    <span class="n">segments</span> <span class="o">=</span> <span class="n">segment_audio</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">48000</span><span class="p">)</span>
-    <span class="n">detections</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
-        <span class="n">spectrogram</span> <span class="o">=</span> <span class="n">compute_spectrogram</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">48000</span><span class="p">)</span>
-        <span class="n">scores</span> <span class="o">=</span> <span class="n">classify_segment</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">)</span>
-        <span class="n">detections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+    samples = load_audio(audio_file)
+    segments = segment_audio(samples, sample_rate=48000)
+    detections = []
+    for segment in segments:
+        spectrogram = compute_spectrogram(segment, sample_rate=48000)
+        scores = classify_segment(spectrogram)
+        detections.append(scores)
 
-    <span class="k">return</span> <span class="s2">&quot;Hirundo atrocaerulea&quot;</span>
-</code></pre></div></td></tr></table></div>
+    return "Hirundo atrocaerulea"</code></pre>
             </details>
     </div>
 
@@ -630,7 +574,7 @@
 
 
 <h2 id="oddsong.song.load_audio" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">load_audio</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">48000</span><span class="p">)</span></code>
+            <code class="highlight language-python">load_audio(file_path, sample_rate=48000)</code>
 
 </h2>
 
@@ -712,28 +656,17 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>oddsong/song.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_audio</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">48000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load an audio file and resample to the target sample rate.</span>
+              <pre class="highlight"><code class="language-python">def load_audio(file_path: str, sample_rate: int = 48000) -&gt; list[float]:
+    """Load an audio file and resample to the target sample rate.
 
-<span class="sd">    Args:</span>
-<span class="sd">        file_path: Path to the audio file (WAV, MP3, FLAC, or OGG).</span>
-<span class="sd">        sample_rate: Target sample rate in Hz.</span>
+    Args:
+        file_path: Path to the audio file (WAV, MP3, FLAC, or OGG).
+        sample_rate: Target sample rate in Hz.
 
-<span class="sd">    Returns:</span>
-<span class="sd">        A list of audio samples as floating-point values.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[]</span>
-</code></pre></div></td></tr></table></div>
+    Returns:
+        A list of audio samples as floating-point values.
+    """
+    return []</code></pre>
             </details>
     </div>
 
@@ -743,7 +676,7 @@
 
 
 <h2 id="oddsong.song.segment_audio" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">segment_audio</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">segment_duration</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span></code>
+            <code class="highlight language-python">segment_audio(samples, sample_rate, segment_duration=3.0)</code>
 
 </h2>
 
@@ -841,34 +774,20 @@
 
             <details class="mkdocstrings-source">
               <summary>Source code in <code>oddsong/song.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">segment_audio</span><span class="p">(</span>
-    <span class="n">samples</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">segment_duration</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Divide an audio signal into fixed-length segments.</span>
+              <pre class="highlight"><code class="language-python">def segment_audio(
+    samples: list[float], sample_rate: int, segment_duration: float = 3.0
+) -&gt; list[list[float]]:
+    """Divide an audio signal into fixed-length segments.
 
-<span class="sd">    Args:</span>
-<span class="sd">        samples: Audio samples as a list of floats.</span>
-<span class="sd">        sample_rate: Sample rate of the audio in Hz.</span>
-<span class="sd">        segment_duration: Duration of each segment in seconds.</span>
+    Args:
+        samples: Audio samples as a list of floats.
+        sample_rate: Sample rate of the audio in Hz.
+        segment_duration: Duration of each segment in seconds.
 
-<span class="sd">    Returns:</span>
-<span class="sd">        A list of segments, each a list of audio samples.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">[[]]</span>
-</code></pre></div></td></tr></table></div>
+    Returns:
+        A list of segments, each a list of audio samples.
+    """
+    return [[]]</code></pre>
             </details>
     </div>
 

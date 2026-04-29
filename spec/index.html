@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Spec - OddSong Birdsong Identifier</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">OddSong Birdsong Identifier</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../reference/" class="nav-link">Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Spec</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../reference/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#1-purpose-and-scope" class="nav-link">1. Purpose and Scope</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#2-core-capabilities" class="nav-link">2. Core Capabilities</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#21-audio-analysis" class="nav-link">2.1 Audio Analysis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#22-species-coverage" class="nav-link">2.2 Species Coverage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#23-input-formats" class="nav-link">2.3 Input Formats</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#24-output-formats" class="nav-link">2.4 Output Formats</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#3-deployment-options" class="nav-link">3. Deployment Options</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#4-key-features" class="nav-link">4. Key Features</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#41-location-and-date-filtering" class="nav-link">4.1 Location and Date Filtering</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#42-custom-species-lists" class="nav-link">4.2 Custom Species Lists</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#43-custom-model-training" class="nav-link">4.3 Custom Model Training</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#44-embeddings-and-ecological-analysis" class="nav-link">4.4 Embeddings and Ecological Analysis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#45-real-time-analysis" class="nav-link">4.5 Real-Time Analysis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#46-hardware-flexibility" class="nav-link">4.6 Hardware Flexibility</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#5-ecosystem-and-integrations" class="nav-link">5. Ecosystem and Integrations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#6-licensing" class="nav-link">6. Licensing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#7-references-and-resources" class="nav-link">7. References and Resources</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><strong>Bird Call Identification Software</strong></p>
+<h1 id="1-purpose-and-scope">1. Purpose and Scope</h1>
+<p>This document provides a high-level overview of the features and capabilities of open source bird call analysis software and related open-source tools for automated bird call identification. It is intended to support evaluation of these tools for research, citizen science, and conservation monitoring use cases.</p>
+<p>The primary tool in scope is open source bird call analysis software, developed jointly by Cornell Lab of Ornithology and Chemnitz University of Technology. Several ecosystem projects are also summarised.</p>
+<h1 id="2-core-capabilities">2. Core Capabilities</h1>
+<h2 id="21-audio-analysis">2.1 Audio Analysis</h2>
+<p>open source bird call analysis software processes field recordings and live audio input to detect and classify bird vocalisations. The core pipeline operates as follows:</p>
+<p>•    Audio is sampled at 48 kHz and divided into 3-second segments.</p>
+<p>•    Each segment is transformed into a log-scaled Mel-spectrogram for frequency analysis.</p>
+<p>•    A Convolutional Neural Network (CNN) classifies each segment against a library of known species.</p>
+<p>•    Location and date metadata are used to refine predictions and reduce false positives.</p>
+<h2 id="22-species-coverage">2.2 Species Coverage</h2>
+<p>The current open source bird call analysis software model supports identification of over 6,000 bird species worldwide, covering the majority of commonly encountered species globally.</p>
+<h2 id="23-input-formats">2.3 Input Formats</h2>
+<p>The analyser accepts common audio file formats including WAV, MP3, FLAC, and OGG. Batch processing of directories is supported for large-scale passive acoustic monitoring (PAM) datasets.</p>
+<h2 id="24-output-formats">2.4 Output Formats</h2>
+<p>Results are produced as structured data files suitable for downstream analysis, including CSV, Raven, and Audacity label formats. Each detection includes:</p>
+<p>•    Predicted species name (common and scientific)</p>
+<p>•    Timestamp (start and end of detection within the recording)</p>
+<p>•    Confidence score</p>
+<h1 id="3-deployment-options">3. Deployment Options</h1>
+<p>open source bird call analysis software is available across a range of platforms and form factors, making it suitable for both field research and continuous monitoring installations.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Deployment</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open source bird call analysis software-Analyzer</td>
+<td>Python-based  desktop and command-line tool for batch processing of audio files. Includes a  Gradio GUI. Primary tool for scientific analysis.</td>
+</tr>
+<tr>
+<td>open source bird call analysis software Python  library</td>
+<td>Pip-installable  package for programmatic integration into research workflows. Supports  multiprocessing and GPU execution.</td>
+</tr>
+<tr>
+<td>open source bird call analysis softwareR</td>
+<td>R package  wrapping the Python library for use within R-based data analysis pipelines.</td>
+</tr>
+<tr>
+<td>open source bird call analysis software-Pi</td>
+<td>Raspberry Pi  deployment for always-on, real-time garden or field monitoring with a local  web interface.</td>
+</tr>
+<tr>
+<td>open source bird call analysis software-Go</td>
+<td>Go-based  alternative to open source bird call analysis software-Pi; actively maintained with a modern architecture and  web dashboard.</td>
+</tr>
+<tr>
+<td>whoBIRD  (Android)</td>
+<td>Mobile  application for real-time bird call identification using a device microphone.</td>
+</tr>
+<tr>
+<td>open source bird call analysis software Live  (Browser)</td>
+<td>Progressive web  app for in-browser analysis; works offline via TFLite.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="4-key-features">4. Key Features</h1>
+<h2 id="41-location-and-date-filtering">4.1 Location and Date Filtering</h2>
+<p>Species predictions can be filtered using GPS coordinates and date or week-of-year metadata. This reduces false positives by cross-referencing detections against known species ranges and seasonal occurrence patterns.</p>
+<h2 id="42-custom-species-lists">4.2 Custom Species Lists</h2>
+<p>Users may supply a custom species list to restrict detections to a defined set of target species, useful for site-specific monitoring programmes.</p>
+<h2 id="43-custom-model-training">4.3 Custom Model Training</h2>
+<p>open source bird call analysis software-Analyzer supports training of custom classifiers on user-supplied audio data. This enables detection of species not included in the base model, or refinement for specific acoustic environments.</p>
+<h2 id="44-embeddings-and-ecological-analysis">4.4 Embeddings and Ecological Analysis</h2>
+<p>The analyser can extract acoustic embeddings from recordings. These high-dimensional feature vectors can be used for species clustering, similarity analysis, and integration with tools such as the Hoplite database for large-scale ecological data workflows.</p>
+<h2 id="45-real-time-analysis">4.5 Real-Time Analysis</h2>
+<p>On supported platforms (open source bird call analysis software-Pi, open source bird call analysis software-Go, whoBIRD), audio can be processed in real time from a connected microphone. Detections are logged continuously and viewable via a web interface.</p>
+<h2 id="46-hardware-flexibility">4.6 Hardware Flexibility</h2>
+<p>Lightweight TFLite model variants support deployment on low-power devices including Raspberry Pi single-board computers and, experimentally, microcontrollers. Full models support CPU and GPU execution on standard workstations and servers.</p>
+<h1 id="5-ecosystem-and-integrations">5. Ecosystem and Integrations</h1>
+<p>A broader ecosystem of complementary tools integrates with open source bird call analysis software:</p>
+<p>•    Chirpity — Desktop application (Windows/macOS/Linux) optimised for reviewing Nocturnal Flight Call (Nocmig) recordings, with support for open source bird call analysis software and Google's Perch model (10,000+ species).</p>
+<p>•    AviaNZ — Standalone Python desktop application with a human-in-the-loop review workflow; well suited to conservation monitoring where manual verification is required.</p>
+<p>•    open source bird call analysis softwarelib — Community-maintained Python API providing a unified interface to open source bird call analysis software-Analyzer and open source bird call analysis software-Lite.</p>
+<p>•    BirdWeather — Hosted platform aggregating detections from open source bird call analysis software-Pi and open source bird call analysis software-Go installations globally; provides a public species occurrence map.</p>
+<p>•    Xeno-canto — Reference audio library widely used as a training and validation data source.</p>
+<h1 id="6-licensing">6. Licensing</h1>
+<p>Licensing varies across components:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Component</strong></th>
+<th><strong>Licence</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open source bird call analysis software-Analyzer  source code</td>
+<td>MIT Licence</td>
+</tr>
+<tr>
+<td>open source bird call analysis software model  weights</td>
+<td>CC BY-NC-SA 4.0  (non-commercial; research and education permitted)</td>
+</tr>
+<tr>
+<td>open source bird call analysis software Python  library</td>
+<td>See repository  — research use freely permitted</td>
+</tr>
+<tr>
+<td>open source bird call analysis software-Pi /  open source bird call analysis software-Go</td>
+<td>Open source;  see individual repositories</td>
+</tr>
+<tr>
+<td>whoBIRD</td>
+<td>GPL 3.0 (app);  model under CC BY-NC-SA 4.0</td>
+</tr>
+<tr>
+<td>AviaNZ</td>
+<td>Open source;  freely available</td>
+</tr>
+<tr>
+<td>Chirpity</td>
+<td>Free to use;  some features via membership</td>
+</tr>
+</tbody>
+</table>
+<p>Note: The CC BY-NC-SA 4.0 licence on open source bird call analysis software model weights permits use for educational and research purposes but restricts commercial applications. Legal review is advised for any commercial deployment.</p>
+<h1 id="7-references-and-resources">7. References and Resources</h1>
+<p>Primary repositories and documentation:</p>
+<p>•    open source bird call analysis software-Analyzer: github.com/open source bird call analysis software-team/open source bird call analysis software-Analyzer</p>
+<p>•    open source bird call analysis software Python library: github.com/open source bird call analysis software-team/open source bird call analysis software</p>
+<p>•    open source bird call analysis software-Go: github.com/tphakala/open source bird call analysis software-go</p>
+<p>•    AviaNZ: github.com/smarsland/AviaNZ</p>
+<p>•    Chirpity: chirpity.mattkirkland.co.uk</p>
+<p>•    Project site: open source bird call analysis software.cornell.edu</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
